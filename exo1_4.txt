@@ -1,0 +1,11 @@
+"""
+Avec cette méthode le variant (l'ordre lexicographique des trois variables) n'est pas correct, 
+peut ne pas diminuer après une itération, ce qui ne respecte pas qu'un variant soit strictement croissant ou décroissant.
+
+Par exemple, dans le cas des caractères, la majuscule est supérieure a une minuscule et serons donc interchangées pourtant lexicographiquement, 
+la minuscule peut être supérieure à la majuscule.
+
+Si l'on prend 3 valeurs distinctes, nous n'aurons pas ce problème.
+"""
+
+
