@@ -9,6 +9,5 @@ def recherche_lin(A : list[int], X: int) -> int:
         #@ variant i
         #@ invariant pos == -1 or A[pos] == X
         if A[i] == X:
-            pos = i
-            break
+            return pos
     return pos
