@@ -3,7 +3,9 @@
 #@ predicate hasCommonSub(A: list[int], ad: int, af: int, B: list[int], bd: int, bf: int) = exists i, j. ad <= i < af and bd <= j < bf and A[i] == B[j]
 
 def recherche_commun(A: list[int], B: list[int]) -> int:
-    #@ requires sorted(A) and sorted(B) and hasCommonSub(A, 0, len(A), B, 0, len(B))
+    #@ requires sorted(A)
+    #@ requires sorted(B) 
+    #@ requires hasCommonSub(A, 0, len(A), B, 0, len(B))
     #@ ensures isIn(result, A) and isIn(result, B)
     i, j = 0, 0
     while i < len(A) and j < len(B):
@@ -16,11 +18,11 @@ def recherche_commun(A: list[int], B: list[int]) -> int:
         elif A[i] < B[j]:
             i += 1 
         else:
-            j += 1 
-    return -1 
+            j += 1
+    return A[i]
 
 
-r = recherche_commun ([3] , [3])
+r = recherche_commun ([3], [3])
 #@ assert r == 3
-r = recherche_commun ([4,5,7,9,18,19] , [3,6,8,9,10])
+r = recherche_commun ([4,5,7,9,18,19], [3,6,8,9,10])
 #@ assert r == 9
