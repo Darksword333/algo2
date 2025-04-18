@@ -9,7 +9,8 @@ def recherche_dichotomique(A:list[int], X:int) -> int:
     m = (i + j)//2
     while i <= j:
         #@ variant j-i
-        #@ invariant 0 <= i <= j
+        #@ invariant 0 <= i <= len(A)
+        #@ invariant -1 <= j < len(A)
         #@ invariant j < len(A)
         #@ invariant not isInSub(X, A, 0, i) 
         #@ invariant not isInSub(X, A, j+1, len(A)) 
@@ -19,7 +20,7 @@ def recherche_dichotomique(A:list[int], X:int) -> int:
             return m
         elif A[m] < X:
             i = m + 1
-        else :
+        else:
             j = m -1
     return len(A)
     
